@@ -3,11 +3,23 @@ import 'package:risk_radar/utils/size_extension.dart';
 
 class CustomButton extends StatelessWidget {
   String title;
+  final double? width;
+  final double? height;
+  final double? fontSize;
+  final Color? bgColor;
+  final double? radius;
+  final Color? fontColor;
   final void Function()? onPressed;
   CustomButton({
     super.key,
     required this.title,
     this.onPressed,
+    this.height,
+    this.width,
+    this.fontSize,
+    this.bgColor,
+    this.radius,
+    this.fontColor,
   });
 
   @override
@@ -15,13 +27,14 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.black,
-        fixedSize: Size(context.width * 0.8, 45),
+        backgroundColor: bgColor ?? Colors.black,
+        fixedSize: Size(width ?? context.width * 0.8, height ?? 45),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(radius ?? 30),
         ),
       ),
-      child: Text(title, style: const TextStyle(fontSize: 30)),
+      child: Text(title,
+          style: TextStyle(fontSize: fontSize ?? 30, color: fontColor)),
     );
   }
 }

@@ -16,60 +16,65 @@ class VerifyUserView extends StatelessWidget {
     return ViewModelBuilder.nonReactive(
         viewModelBuilder: () => VerifyUserViewModel(),
         builder: (context, viewModel, child) {
-          return Scaffold(
-            body: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              width: context.width,
-              height: context.height,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(ImageConstants.background4),
-                  fit: BoxFit.cover,
+          return GestureDetector(
+            onTap: () {
+              FocusScope.of(context).unfocus();
+            },
+            child: Scaffold(
+              body: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                width: context.width,
+                height: context.height,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(ImageConstants.background4),
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              child: SafeArea(
-                  child: Center(
-                child: Stack(
-                  children: [
-                    Positioned(
-                      top: 0,
-                      left: 0,
-                      child: IconButton(
-                          onPressed: () {
-                            locator<NavigationService>().back();
-                          },
-                          icon: const Icon(Icons.arrow_back_ios)),
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text("Verify Yourself",
+                child: SafeArea(
+                    child: Center(
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 0,
+                        left: 0,
+                        child: IconButton(
+                            onPressed: () {
+                              locator<NavigationService>().back();
+                            },
+                            icon: const Icon(Icons.arrow_back_ios)),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text("Verify Yourself",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          const SizedBox(height: 15),
+                          const Text(
+                              "Enter the verification code that you have just received.",
                               style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold)),
-                        ),
-                        const SizedBox(height: 15),
-                        const Text(
-                            "Enter the verification code that you have just received.",
-                            style: TextStyle(
-                                color: Color(0xff454242), fontSize: 20)),
-                        const SizedBox(height: 15),
-                        CustomTextField(
-                          controller: viewModel.codeController,
-                          hintText: "Enter Code",
-                        ),
-                        const SizedBox(height: 15),
-                        CustomButton(title: "Verify", onPressed: () {
-                          viewModel.navigateToResetPassword();
-                        }),
-                      ],
-                    )
-                  ],
-                ),
-              )),
+                                  color: Color(0xff454242), fontSize: 20)),
+                          const SizedBox(height: 15),
+                          CustomTextField(
+                            controller: viewModel.codeController,
+                            hintText: "Enter Code",
+                          ),
+                          const SizedBox(height: 15),
+                          CustomButton(title: "Verify", onPressed: () {
+                            viewModel.navigateToResetPassword();
+                          }),
+                        ],
+                      )
+                    ],
+                  ),
+                )),
+              ),
             ),
           );
         });

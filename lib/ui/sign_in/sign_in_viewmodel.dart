@@ -21,4 +21,9 @@ class SignInViewModel extends BaseViewModel {
   void navigateToForgotPassword() {
     locator<NavigationService>().navigateToForgetPasswordView();
   }
+
+  void navigateToHome() {
+    locator<NavigationService>()
+        .pushNamedAndRemoveUntil(Routes.navigationBarView);
+  }
 }
