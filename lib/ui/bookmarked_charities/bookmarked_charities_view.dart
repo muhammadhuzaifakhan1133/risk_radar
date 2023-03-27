@@ -42,6 +42,26 @@ class BookmarkedCharitiesView extends StatelessWidget {
                         style: TextStyle(fontSize: 23),
                       ),
                     ],
+                  ),
+                  const SizedBox(height: 20),
+                  Expanded(
+                    child: GridView.builder(
+                      itemCount: 12,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10),
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: context.width * 0.4,
+                          height: 100,
+                          decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.4),
+                              borderRadius: BorderRadius.circular(10)),
+                        );
+                      },
+                    ),
                   )
                 ],
               )),

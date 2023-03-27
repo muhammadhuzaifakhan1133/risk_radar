@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:risk_radar/ui/privacy_setting/privacy_setting_viewmodel.dart';
+import 'package:risk_radar/ui/privacy_setting/widget/privacy_setting_tile.dart';
 import 'package:risk_radar/ui/push_notification/push_notification_viewmodel.dart';
 import 'package:risk_radar/utils/image_constants.dart';
 import 'package:risk_radar/utils/size_extension.dart';
@@ -10,7 +11,7 @@ class PushNotificationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder.nonReactive(
+    return ViewModelBuilder.reactive(
         viewModelBuilder: () => PushNotificationViewModel(),
         builder: (context, viewModel, child) {
           return Scaffold(
@@ -40,7 +41,38 @@ class PushNotificationView extends StatelessWidget {
                         style: TextStyle(fontSize: 23),
                       ),
                     ],
-                  )
+                  ),
+                  const SizedBox(height: 20),
+                  privacySettingTile(
+                      context: context,
+                      title: "Stories Notifications",
+                      value: viewModel.selection["Stories"]!,
+                      onChanged: viewModel.changeSelection,
+                      key: "Stories"),
+                  privacySettingTile(
+                      context: context,
+                      title: "Donations Notifications",
+                      value: viewModel.selection["Donations"]!,
+                      onChanged: viewModel.changeSelection,
+                      key: "Donations"),
+                  privacySettingTile(
+                      context: context,
+                      title: "Liked Posts Notifications",
+                      value: viewModel.selection["Posts"]!,
+                      onChanged: viewModel.changeSelection,
+                      key: "Posts"),
+                  privacySettingTile(
+                      context: context,
+                      title: "Friends Notifications",
+                      value: viewModel.selection["Friends"]!,
+                      onChanged: viewModel.changeSelection,
+                      key: "Friends"),
+                  privacySettingTile(
+                      context: context,
+                      title: "Family Notifications",
+                      value: viewModel.selection["Family"]!,
+                      onChanged: viewModel.changeSelection,
+                      key: "Family"),
                 ],
               )),
             ),

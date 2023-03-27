@@ -7,4 +7,17 @@ class PushNotificationViewModel extends BaseViewModel {
     locator<NavigationService>().back();
   }
 
+    Map<String, bool> selection = {
+    "Stories": false,
+    "Donations": false,
+    "Posts": false,
+    "Friends": false,
+    "Family": false,
+  };
+
+  void changeSelection(String s, bool? value) {
+    selection[s] = value!;
+    notifyListeners();
+  }
+
 }

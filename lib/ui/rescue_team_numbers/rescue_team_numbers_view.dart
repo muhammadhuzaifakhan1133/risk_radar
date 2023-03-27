@@ -39,11 +39,56 @@ class RescueTeamNumbersView extends StatelessWidget {
                         style: TextStyle(fontSize: 23),
                       ),
                     ],
-                  )
+                  ),
+                  const SizedBox(height: 20),
+                  rescueContactWidget("Abc Team near City, Country"),
+                  const SizedBox(height: 10),
+                  rescueContactWidget("Abc Team"),
                 ],
               )),
             ),
           );
         });
+  }
+
+  Widget rescueContactWidget(String title) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: TextStyle(fontSize: 23, color: Color(0xff393434)),
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: [
+            Expanded(
+                child: Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.4),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "XXXX-XXX-XXX",
+                  style: TextStyle(color: Color(0xff393434), fontSize: 23),
+                ),
+              ),
+            )),
+            const SizedBox(width: 10),
+            Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.4),
+                  borderRadius: BorderRadius.circular(10)),
+              child: const Icon(Icons.phone),
+            )
+          ],
+        )
+      ],
+    );
   }
 }

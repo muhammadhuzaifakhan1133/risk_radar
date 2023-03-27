@@ -25,6 +25,7 @@ class SafetyMeasuresView extends StatelessWidget {
               ),
               child: SafeArea(
                   child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
@@ -39,6 +40,38 @@ class SafetyMeasuresView extends StatelessWidget {
                         style: TextStyle(fontSize: 23),
                       ),
                     ],
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    "  Note",
+                    style: TextStyle(fontSize: 23),
+                  ),
+                  const SizedBox(height: 10),
+                  Container(
+                    width: context.width * 0.9,
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      "Voice assistant will always remain on in emergency cases",
+                      style: TextStyle(fontSize: 23, color: Color(0xff393434)),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Container(
+                    width: context.width * 0.9,
+                    height: context.height * 0.6,
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      "Safety measures:",
+                      style: TextStyle(color: Color(0xff393434), fontSize: 23),
+                    ),
                   )
                 ],
               )),

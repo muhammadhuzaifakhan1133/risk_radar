@@ -6,4 +6,6 @@ class CardDetailsViewModel extends BaseViewModel {
   void back() {
     locator<NavigationService>().back();
   }
+
+  bool saveCard = false;
 }

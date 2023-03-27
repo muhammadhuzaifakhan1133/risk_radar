@@ -155,7 +155,6 @@ class SettingView extends StatelessWidget {
         onTap: onTap,
         child: Container(
           width: context.width * 0.8,
-          height: 70,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.4),
@@ -166,11 +165,9 @@ class SettingView extends StatelessWidget {
               const SizedBox(width: 10),
               Image.asset(iconPath),
               const SizedBox(width: 10),
-              SizedBox(
-                width: context.width * 0.56,
+              Flexible(
                 child: Text(
                   title,
-                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontSize: 23),
                 ),
               ),

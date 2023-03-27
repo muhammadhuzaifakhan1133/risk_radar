@@ -7,4 +7,16 @@ class PrivacySettingViewModel extends BaseViewModel {
     locator<NavigationService>().back();
   }
 
+  Map<String, bool> selection = {
+    "Profile": false,
+    "Location": false,
+    "Badges": false,
+    "Donations": false,
+    "Friends": false,
+  };
+
+  void changeSelection(String s, bool? value) {
+    selection[s] = value!;
+    notifyListeners();
+  }
 }
