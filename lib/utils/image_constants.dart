@@ -64,5 +64,19 @@ class ImageConstants {
   static String donor2 = 'assets/images/donor2.png';
   static String donor3 = 'assets/images/donor3.png';
   static String donor4 = 'assets/images/donor4.png';
+  static String donationIcon = 'assets/images/donation_icon.png';
+  static String badge1 = 'assets/images/badge1.png';
+  static String badge2 = 'assets/images/badge2.png';
+  static String badge3 = 'assets/images/badge3.png';
+  static String badge4 = 'assets/images/badge4.png';
+  static String setting1 = 'assets/images/setting1.png';
+  static String setting2 = 'assets/images/setting2.png';
+  static String setting3 = 'assets/images/setting3.png';
+  static String setting4 = 'assets/images/setting4.png';
+  static String setting5 = 'assets/images/setting5.png';
+  static String setting6 = 'assets/images/setting6.png';
+  static String setting7 = 'assets/images/setting7.png';
+  static String setting8 = 'assets/images/setting8.png';
+  static String setting9 = 'assets/images/setting9.png';
 
 }

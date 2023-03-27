@@ -1,15 +1,24 @@
+import 'package:risk_radar/ui/bookmarked_charities/bookmarked_charities_view.dart';
+import 'package:risk_radar/ui/bookmarked_stories/bookmarked_stories_view.dart';
+import 'package:risk_radar/ui/card_details/card_details_view.dart';
+import 'package:risk_radar/ui/privacy_setting/privacy_setting_view.dart';
 import 'package:risk_radar/ui/add_friends_family/add_friends_family_view.dart';
+import 'package:risk_radar/ui/alert_setting/alert_setting_view.dart';
 import 'package:risk_radar/ui/disasters/disaster_detail_view.dart';
 import 'package:risk_radar/ui/disasters/disasters_view.dart';
 import 'package:risk_radar/ui/donate/donate_view.dart';
 import 'package:risk_radar/ui/donation/donation_view.dart';
 import 'package:risk_radar/ui/forget_password/forget_password_view.dart';
-import 'package:risk_radar/ui/home/home_view.dart';
 import 'package:risk_radar/ui/navigation_bar/navigation_bar_view.dart';
 import 'package:risk_radar/ui/news/news_view.dart';
 import 'package:risk_radar/ui/onboarding/onboarding_view.dart';
 import 'package:risk_radar/ui/payment/payment_view.dart';
+import 'package:risk_radar/ui/profile/profile_view.dart';
+import 'package:risk_radar/ui/push_notification/push_notification_view.dart';
+import 'package:risk_radar/ui/rescue_team_numbers/rescue_team_numbers_view.dart';
 import 'package:risk_radar/ui/reset_password/reset_password_view.dart';
+import 'package:risk_radar/ui/safety_measures/safety_measures_view.dart';
+import 'package:risk_radar/ui/setting/setting_view.dart';
 import 'package:risk_radar/ui/sign_in/sign_in_view.dart';
 import 'package:risk_radar/ui/sign_up/sign_up_view.dart';
 import 'package:risk_radar/ui/splash/splash_view.dart';
@@ -35,6 +44,16 @@ import 'package:stacked_services/stacked_services.dart';
   MaterialRoute(page: PaymentView),
   MaterialRoute(page: StoryView),
   MaterialRoute(page: DonationView),
+  MaterialRoute(page: ProfileView),
+  MaterialRoute(page: SettingView),
+  MaterialRoute(page: AlertSettingView),
+  MaterialRoute(page: PrivacySettingView),
+  MaterialRoute(page: RescueTeamNumbersView),
+  MaterialRoute(page: SafetyMeasuresView),
+  MaterialRoute(page: CardDetailsView),
+  MaterialRoute(page: PushNotificationView),
+  MaterialRoute(page: BookmarkedCharitiesView),
+  MaterialRoute(page: BookmarkedStoriesView),
 ], dependencies: [
   LazySingleton(classType: NavigationService),
 ])

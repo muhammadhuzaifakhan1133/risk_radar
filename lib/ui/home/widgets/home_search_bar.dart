@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:risk_radar/app/app.locator.dart';
+import 'package:risk_radar/app/app.router.dart';
 import 'package:risk_radar/utils/image_constants.dart';
 import 'package:risk_radar/widgets/custom_textfield.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class HomeSearchBar extends StatelessWidget {
   final TextEditingController searchController;
@@ -29,9 +32,14 @@ class HomeSearchBar extends StatelessWidget {
       const SizedBox(width: 25),
       Stack(
         children: [
-          CircleAvatar(
-            radius: 23,
-            backgroundImage: AssetImage(ImageConstants.profile),
+          InkWell(
+            onTap: () {
+              locator<NavigationService>().navigateToProfileView();
+            },
+            child: CircleAvatar(
+              radius: 23,
+              backgroundImage: AssetImage(ImageConstants.profile),
+            ),
           ),
           Positioned(
             top: 0,
