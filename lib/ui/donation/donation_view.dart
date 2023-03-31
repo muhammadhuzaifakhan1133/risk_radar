@@ -28,7 +28,7 @@ class DonationView extends StatelessWidget {
               image: DecorationImage(
                 alignment: Alignment.topCenter,
                 fit: BoxFit.fitWidth,
-                image: AssetImage(ImageConstants.storyImage),
+                image: AssetImage(ImageConstants.donationImage),
               ),
             ),
             child: SafeArea(

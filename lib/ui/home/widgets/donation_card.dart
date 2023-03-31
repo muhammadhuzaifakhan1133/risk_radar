@@ -7,8 +7,10 @@ import 'package:risk_radar/widgets/custom_button.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class DonationCard extends StatelessWidget {
+  final String image;
   const DonationCard({
     super.key,
+    required this.image,
   });
 
   @override
@@ -29,6 +31,10 @@ class DonationCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: Colors.white.withOpacity(0.4),
+                      image: DecorationImage(
+                        image: AssetImage(image),
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                   Positioned(

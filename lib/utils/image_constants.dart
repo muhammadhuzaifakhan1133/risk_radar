@@ -13,8 +13,16 @@ class ImageConstants {
   static String newsIcon = 'assets/images/news_icon.png';
   static String storiesIcon = 'assets/images/stories_icon.png';
   static String newsBg = 'assets/images/news_bg.png';
+  static String newsBg1 = 'assets/images/news_bg1.png';
+  static String newsBg2 = 'assets/images/news_bg2.png';
+  static String newsBg3 = 'assets/images/news_bg3.png';
+  static String newsBg4 = 'assets/images/news_bg4.png';
   static String storiesBg1 = 'assets/images/stories_bg1.png';
   static String storiesBg2 = 'assets/images/stories_bg2.png';
+  static String storiesBg3 = 'assets/images/stories_bg3.png';
+  static String storiesBg4 = 'assets/images/stories_bg4.png';
+  static String storiesBg5 = 'assets/images/stories_bg5.png';
+  static String storiesBg6 = 'assets/images/stories_bg6.png';
   static String stormIcon = 'assets/images/storm_icon.png';
   static String cycloneIcon = 'assets/images/cyclone_icon.png';
   static String earthquakeIcon = 'assets/images/earthquake_icon.png';
@@ -59,6 +67,7 @@ class ImageConstants {
   static String masterCardIcon = 'assets/images/mastercard_icon.png';
   static String paypalIcon = 'assets/images/paypal_icon.png';
   static String storyImage = 'assets/images/story_image.png';
+  static String donationImage = 'assets/images/donation_image.png';
   static String storyProfile = 'assets/images/story_profile.png';
   static String donor1 = 'assets/images/donor1.png';
   static String donor2 = 'assets/images/donor2.png';
@@ -78,5 +87,7 @@ class ImageConstants {
   static String setting7 = 'assets/images/setting7.png';
   static String setting8 = 'assets/images/setting8.png';
   static String setting9 = 'assets/images/setting9.png';
+  static String donations1 = 'assets/images/donations1.png';
+  static String donations2 = 'assets/images/donations2.png';
 
 }

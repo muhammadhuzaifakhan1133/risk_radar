@@ -29,7 +29,23 @@ class OnBoardingView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 175.h),
+                SizedBox(height: 42.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      ImageConstants.logo,
+                      height: 70.h,
+                      width: 71.w,
+                    ),
+                    SizedBox(width: 9.w),
+                    Text(
+                      "Risk Radar",
+                      style: TextStyle(fontSize: 18.sp),
+                    )
+                  ],
+                ),
+                SizedBox(height: 49.h),
                 SizedBox(
                   height: 580.h,
                   child: IntroSlider(

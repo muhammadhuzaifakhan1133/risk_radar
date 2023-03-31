@@ -147,9 +147,9 @@ class HomeView extends StatelessWidget {
                         Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const DonationCard(),
+                              DonationCard(image: ImageConstants.donations1),
                               SizedBox(width: 24.w),
-                              const DonationCard(),
+                              DonationCard(image: ImageConstants.donations2),
                             ])
                       ],
                     ),

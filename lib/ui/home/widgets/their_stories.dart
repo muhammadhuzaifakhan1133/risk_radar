@@ -16,10 +16,13 @@ class TheirStories extends StatelessWidget {
     List<String> stories = [
       ImageConstants.storiesBg1,
       ImageConstants.storiesBg2,
-      ImageConstants.storiesBg1,
+      ImageConstants.storiesBg3,
+      ImageConstants.storiesBg4,
+      ImageConstants.storiesBg5,
+      ImageConstants.storiesBg6,
     ];
     return ListView.separated(
-        itemCount: 3,
+        itemCount: stories.length,
         shrinkWrap: true,
         primary: false,
         scrollDirection: Axis.horizontal,
@@ -38,7 +41,7 @@ class TheirStories extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children:  [
+                children: [
                   Text(
                     "Enter your text here",
                     style: TextStyle(

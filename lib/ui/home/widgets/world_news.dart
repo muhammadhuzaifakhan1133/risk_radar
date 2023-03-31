@@ -13,11 +13,18 @@ class WorldNews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> newsBgs = [
+      ImageConstants.newsBg,
+      ImageConstants.newsBg1,
+      ImageConstants.newsBg2,
+      ImageConstants.newsBg3,
+      ImageConstants.newsBg3,
+    ];
     return ListView.separated(
       shrinkWrap: true,
       primary: false,
       scrollDirection: Axis.horizontal,
-      itemCount: 10,
+      itemCount: newsBgs.length,
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
@@ -28,12 +35,12 @@ class WorldNews extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(ImageConstants.newsBg), fit: BoxFit.fill),
+                  image: AssetImage(newsBgs[index]), fit: BoxFit.fill),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children:  [
+              children: [
                 Text(
                   "Enter your text here",
                   style: TextStyle(
