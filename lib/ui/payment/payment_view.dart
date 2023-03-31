@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/ui/payment/payment_viewmodel.dart';
 import 'package:risk_radar/ui/payment/widgets/payment_card.dart';
@@ -39,9 +40,9 @@ class PaymentView extends StatelessWidget {
                           },
                           icon: const Icon(Icons.arrow_back_ios)),
                       const SizedBox(width: 10),
-                      const Text(
+                       Text(
                         "Payment",
-                        style: TextStyle(fontSize: 23),
+                        style: TextStyle(fontSize: 23.sp),
                       ),
                     ],
                   ),
@@ -57,28 +58,28 @@ class PaymentView extends StatelessWidget {
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children:  [
                         Text(
                           "Amount:",
                           style:
-                              TextStyle(color: Color(0xff706767), fontSize: 22),
+                              TextStyle(color: Color(0xff706767), fontSize: 22.sp),
                         ),
                         Text(
                           "\$500",
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: 22.sp),
                         )
                       ],
                     ),
                   ),
                   const SizedBox(height: 25),
-                  const Align(
+                   Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
                       padding: EdgeInsets.only(left: 50.0),
                       child: Text(
                         "Pay with",
                         style:
-                            TextStyle(color: Color(0xff706767), fontSize: 18),
+                            TextStyle(color: Color(0xff706767), fontSize: 18.sp),
                       ),
                     ),
                   ),

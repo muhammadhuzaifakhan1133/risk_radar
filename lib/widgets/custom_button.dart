@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/utils/size_extension.dart';
 
 class CustomButton extends StatelessWidget {
@@ -28,13 +29,13 @@ class CustomButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: bgColor ?? Colors.black,
-        fixedSize: Size(width ?? context.width * 0.8, height ?? 45),
+        fixedSize: Size(width ?? 301.62.w, height ?? 46.77.h),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(radius ?? 30),
         ),
       ),
       child: Text(title,
-          style: TextStyle(fontSize: fontSize ?? 30, color: fontColor)),
+          style: TextStyle(fontSize: fontSize ?? 26.sp, color: fontColor)),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/app/app.router.dart';
 import 'package:risk_radar/model/disaster_model.dart';
@@ -37,150 +38,161 @@ class DisasterDetailView extends StatelessWidget {
                 ),
               ),
               child: SafeArea(
-                  child: Column(
-                children: [
-                  AppBar(
-                    leading: IconButton(
-                      onPressed: () {
-                        locator<NavigationService>().back();
-                      },
-                      icon:
-                          const Icon(Icons.arrow_back_ios, color: Colors.black),
+                  child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    AppBar(
+                      leading: IconButton(
+                        onPressed: () {
+                          locator<NavigationService>().back();
+                        },
+                        icon: const Icon(Icons.arrow_back_ios,
+                            color: Colors.black),
+                      ),
+                      centerTitle: true,
+                      backgroundColor: Colors.transparent,
+                      elevation: 0,
+                      title: Wrap(
+                        direction: Axis.vertical,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          Text(
+                            disaster.location,
+                            style: TextStyle(
+                                color: Color(0xff413C3C), fontSize: 19.sp),
+                          ),
+                          Text(
+                            disaster.locationDetail,
+                            style: TextStyle(
+                                color: Color(0xff626060), fontSize: 12.sp),
+                          ),
+                        ],
+                      ),
                     ),
-                    centerTitle: true,
-                    backgroundColor: Colors.transparent,
-                    elevation: 0,
-                    title: Wrap(
-                      direction: Axis.vertical,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        Text(
-                          disaster.location,
-                          style: const TextStyle(
-                              color: Color(0xff413C3C), fontSize: 19),
-                        ),
-                        Text(
-                          disaster.locationDetail,
-                          style: const TextStyle(
-                              color: Color(0xff626060), fontSize: 12),
-                        ),
-                      ],
+                    SizedBox(height: 18.h),
+                    Image.asset(
+                      getDisasterDetailedMap(type),
+                      height: 353.h,
+                      width: 371.w,
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                  Image.asset(getDisasterDetailedMap(type)),
-                  const SizedBox(height: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.3),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                    child: Column(
-                      children: [
-                        Row(
+                    SizedBox(height: 15.h),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                      child: SingleChildScrollView(
+                        child: Column(
                           children: [
-                            const SizedBox(width: 20),
-                            Container(
-                              width: 50,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: getDisasterColor(type),
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  disaster.magnitude.toString(),
-                                  style: const TextStyle(
-                                      color: Colors.white, fontSize: 18),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 20),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            Row(
                               children: [
-                                Text(
-                                  "${getDisasterName(type)} Details",
-                                  style: const TextStyle(
-                                      color: Color(0xff413C3C), fontSize: 19),
+                                const SizedBox(width: 20),
+                                Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                    color: getDisasterColor(type),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      disaster.magnitude.toString(),
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 18.sp),
+                                    ),
+                                  ),
                                 ),
-                                const SizedBox(height: 5),
-                                Text(
-                                  getDisasterDiscription(type),
-                                  style: const TextStyle(
-                                      color: Color(0xff7A7272), fontSize: 12),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: 15),
-                        const Divider(thickness: 2),
-                        const SizedBox(height: 15),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                disasterInfoCard(
-                                  icon: ImageConstants.disasterTimeIcon,
-                                  title: "Date & Time",
-                                  value: disaster.date,
-                                ),
-                                const SizedBox(height: 20),
-                                disasterInfoCard(
-                                  icon: ImageConstants.disasterRadiusIcon,
-                                  title: "Radius",
-                                  value: "${disaster.radius} meters",
-                                ),
+                                const SizedBox(width: 20),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "${getDisasterName(type)} Details",
+                                      style: TextStyle(
+                                          color: Color(0xff413C3C),
+                                          fontSize: 19.sp),
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      getDisasterDiscription(type),
+                                      style: TextStyle(
+                                          color: Color(0xff7A7272),
+                                          fontSize: 12.sp),
+                                    ),
+                                  ],
+                                )
                               ],
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            SizedBox(height: 15.h),
+                            const Divider(thickness: 2),
+                            SizedBox(height: 15.h),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                disasterInfoCard(
-                                    icon: type == DisasterType.earthquake
-                                        ? ImageConstants.disasterDepthIcon1
-                                        : ImageConstants.disasterDepthIcon2,
-                                    title: "Depth",
-                                    value: "${disaster.depth} miles"),
-                                const SizedBox(height: 20),
-                                disasterInfoCard(
-                                    icon: ImageConstants.disasterLocationIcon,
-                                    title: "Location",
-                                    value:
-                                        "${disaster.lat}'N, ${disaster.lng}'W"),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    disasterInfoCard(
+                                      icon: ImageConstants.disasterTimeIcon,
+                                      title: "Date & Time",
+                                      value: disaster.date,
+                                    ),
+                                    const SizedBox(height: 20),
+                                    disasterInfoCard(
+                                      icon: ImageConstants.disasterRadiusIcon,
+                                      title: "Radius",
+                                      value: "${disaster.radius} meters",
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    disasterInfoCard(
+                                        icon: type == DisasterType.earthquake
+                                            ? ImageConstants.disasterDepthIcon1
+                                            : ImageConstants.disasterDepthIcon2,
+                                        title: "Depth",
+                                        value: "${disaster.depth} miles"),
+                                    const SizedBox(height: 20),
+                                    disasterInfoCard(
+                                        icon:
+                                            ImageConstants.disasterLocationIcon,
+                                        title: "Location",
+                                        value:
+                                            "${disaster.lat}'N, ${disaster.lng}'W"),
+                                  ],
+                                )
                               ],
-                            )
+                            ),
+                            const SizedBox(height: 25),
+                            CustomButton(
+                              title: "Donate Now",
+                              bgColor: Colors.white.withOpacity(0.5),
+                              width: 271.w,
+                              height: 44.h,
+                              fontSize: 15.sp,
+                              fontColor: Colors.black,
+                              radius: 15,
+                              onPressed: () {
+                                locator<NavigationService>()
+                                    .navigateToDonateView();
+                              },
+                            ),
+                            const SizedBox(height: 15),
                           ],
                         ),
-                        const SizedBox(height: 25),
-                        CustomButton(
-                          title: "Donate Now",
-                          bgColor: Colors.white.withOpacity(0.5),
-                          width: context.width * 0.63,
-                          fontSize: 15,
-                          fontColor: Colors.black,
-                          radius: 15,
-                          onPressed: () {
-                            locator<NavigationService>()
-                                .navigateToDonateView();
-                          },
-                        ),
-                        const SizedBox(height: 15),
-                      ],
-                    ),
-                  )
-                ],
+                      ),
+                    )
+                  ],
+                ),
               )),
             ),
           );
         });
   }
-
- 
 
   String getDisasterDetailedMap(DisasterType type) {
     switch (type) {

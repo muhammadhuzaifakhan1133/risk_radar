@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:risk_radar/ui/alert_setting/alert_setting_viewmodel.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/ui/bookmarked_charities/bookmarked_charities_viewmodel.dart';
 import 'package:risk_radar/ui/bookmarked_stories/bookmarked_stories_viewmodel.dart';
 import 'package:risk_radar/utils/image_constants.dart';
@@ -38,9 +38,9 @@ class BookmarkedStoriesView extends StatelessWidget {
                           },
                           icon: const Icon(Icons.arrow_back_ios)),
                       const SizedBox(width: 10),
-                      const Text(
+                      Text(
                         "Bookmarked Stories",
-                        style: TextStyle(fontSize: 23),
+                        style: TextStyle(fontSize: 23.sp),
                       ),
                     ],
                   ),

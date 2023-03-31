@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/utils/size_extension.dart';
 
 class OnBoardingWidget extends StatelessWidget {
@@ -19,23 +20,28 @@ class OnBoardingWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(imagePath),
-          const SizedBox(height: 30),
+          Image.asset(
+            imagePath,
+            height: 343.65.h,
+            width: 328.w,
+          ),
+          SizedBox(height: 29.35.h),
           Text(title,
-              style: const TextStyle(
+              style: TextStyle(
                   color: Colors.white,
-                  fontSize: 22,
+                  fontSize: 22.sp,
                   fontWeight: FontWeight.bold)),
-          const SizedBox(height: 30),
+          SizedBox(height: 11.h),
           SizedBox(
-            width: context.width * 0.7,
+            width: 299.w,
             child: Text(description,
                 textAlign: TextAlign.left,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
-                  fontSize: 18,
+                  fontSize: 18.sp,
                 )),
           ),
+          SizedBox(height: 33.h),
         ],
       ),
     );

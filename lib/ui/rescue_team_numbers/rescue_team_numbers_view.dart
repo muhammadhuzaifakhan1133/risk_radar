@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/ui/rescue_team_numbers/rescue_team_numbers_viewmodel.dart';
 import 'package:risk_radar/utils/image_constants.dart';
 import 'package:risk_radar/utils/size_extension.dart';
@@ -34,9 +35,9 @@ class RescueTeamNumbersView extends StatelessWidget {
                           },
                           icon: const Icon(Icons.arrow_back_ios)),
                       const SizedBox(width: 10),
-                      const Text(
+                       Text(
                         "Rescue Team Numbers",
-                        style: TextStyle(fontSize: 23),
+                        style: TextStyle(fontSize: 23.sp),
                       ),
                     ],
                   ),
@@ -57,7 +58,7 @@ class RescueTeamNumbersView extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(fontSize: 23, color: Color(0xff393434)),
+          style: TextStyle(fontSize: 23.sp, color: Color(0xff393434)),
         ),
         const SizedBox(height: 10),
         Row(
@@ -73,7 +74,7 @@ class RescueTeamNumbersView extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "XXXX-XXX-XXX",
-                  style: TextStyle(color: Color(0xff393434), fontSize: 23),
+                  style: TextStyle(color: Color(0xff393434), fontSize: 23.sp),
                 ),
               ),
             )),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/ui/verify_user/verify_user_viewmodel.dart';
 import 'package:risk_radar/utils/image_constants.dart';
@@ -44,32 +45,42 @@ class VerifyUserView extends StatelessWidget {
                             },
                             icon: const Icon(Icons.arrow_back_ios)),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Verify Yourself",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold)),
+                      SizedBox(
+                        width: context.width,
+                        height: context.height,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 250.h),
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text("Verify Yourself",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 30.sp,
+                                        fontWeight: FontWeight.bold)),
+                              ),
+                              SizedBox(height: 20.h),
+                              Text(
+                                  "Enter the verification code that you have just received.",
+                                  style: TextStyle(
+                                      color: const Color(0xff454242),
+                                      fontSize: 20.sp)),
+                              SizedBox(height: 20.h),
+                              CustomTextField(
+                                controller: viewModel.codeController,
+                                hintText: "Enter Code",
+                              ),
+                              SizedBox(height: 25.h),
+                              CustomButton(
+                                  title: "Verify",
+                                  onPressed: () {
+                                    viewModel.navigateToResetPassword();
+                                  }),
+                            ],
                           ),
-                          const SizedBox(height: 15),
-                          const Text(
-                              "Enter the verification code that you have just received.",
-                              style: TextStyle(
-                                  color: Color(0xff454242), fontSize: 20)),
-                          const SizedBox(height: 15),
-                          CustomTextField(
-                            controller: viewModel.codeController,
-                            hintText: "Enter Code",
-                          ),
-                          const SizedBox(height: 15),
-                          CustomButton(title: "Verify", onPressed: () {
-                            viewModel.navigateToResetPassword();
-                          }),
-                        ],
+                        ),
                       )
                     ],
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/app/app.router.dart';
 import 'package:risk_radar/ui/disasters/disaster_enum.dart';
@@ -32,7 +33,7 @@ class HomeView extends StatelessWidget {
               length: 2,
               child: Scaffold(
                 body: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  padding: EdgeInsets.symmetric(horizontal: 15.w),
                   width: context.width,
                   height: context.height,
                   decoration: BoxDecoration(
@@ -41,13 +42,13 @@ class HomeView extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  child: SafeArea(
+                  child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        const SizedBox(height: 10),
+                        SizedBox(height: 50.h),
                         HomeSearchBar(
                             searchController: viewModel.searchController),
-                        const SizedBox(height: 20),
+                        SizedBox(height: 12.h),
                         TabBar(
                           indicator: BoxDecoration(
                             color: Colors.white.withOpacity(0.6),
@@ -55,7 +56,8 @@ class HomeView extends StatelessWidget {
                           ),
                           indicatorSize: TabBarIndicatorSize.label,
                           isScrollable: true,
-                          labelPadding: EdgeInsets.symmetric(horizontal: 6),
+                          labelPadding:
+                              const EdgeInsets.symmetric(horizontal: 6),
                           tabs: [
                             homeTabCard(
                                 context: context,
@@ -63,13 +65,13 @@ class HomeView extends StatelessWidget {
                                 iconPath: ImageConstants.newsIcon),
                             homeTabCard(
                                 context: context,
-                                title: "Their Stories",
+                                title: "Stories",
                                 iconPath: ImageConstants.storiesIcon),
                           ],
                         ),
-                        const SizedBox(height: 20),
+                        SizedBox(height: 12.h),
                         SizedBox(
-                          height: context.height * 0.2,
+                          height: 161.h,
                           child: const TabBarView(
                             children: [
                               WorldNews(),
@@ -77,14 +79,15 @@ class HomeView extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 25),
-                        const Align(
+                        SizedBox(height: 19.h),
+                        Align(
                           alignment: Alignment.centerLeft,
                           child: Text("Disaster Category",
                               style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold)),
+                                  fontSize: 19.sp,
+                                  fontWeight: FontWeight.bold)),
                         ),
-                        const SizedBox(height: 15),
+                        SizedBox(height: 9.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
@@ -126,24 +129,28 @@ class HomeView extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 20),
+                        SizedBox(height: 18.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
+                          children: [
                             Text("Donations for Refugees",
                                 style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
+                                    fontSize: 19.sp,
+                                    fontWeight: FontWeight.bold)),
                             Text("See more",
                                 style: TextStyle(
-                                    color: Color(0xff3B323E), fontSize: 12))
+                                    color: const Color(0xff3B323E),
+                                    fontSize: 12.sp))
                           ],
                         ),
-                        const SizedBox(height: 15),
-                        Row(children: const [
-                          DonationCard(),
-                          SizedBox(width: 20),
-                          DonationCard(),
-                        ])
+                        SizedBox(height: 11.h),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const DonationCard(),
+                              SizedBox(width: 24.w),
+                              const DonationCard(),
+                            ])
                       ],
                     ),
                   ),

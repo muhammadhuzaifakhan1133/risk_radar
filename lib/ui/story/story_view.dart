@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
+import 'package:risk_radar/app/app.router.dart';
 import 'package:risk_radar/ui/story/story_viewmodel.dart';
 import 'package:risk_radar/widgets/story_tag.dart';
 import 'package:risk_radar/utils/image_constants.dart';
@@ -25,7 +27,7 @@ class StoryView extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 alignment: Alignment.topCenter,
-                scale: 0.95,
+                fit: BoxFit.fitWidth,
                 image: AssetImage(ImageConstants.storyImage),
               ),
             ),
@@ -37,8 +39,8 @@ class StoryView extends StatelessWidget {
                     child: Container(
                         width: context.width,
                         height: context.height * 0.6,
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                        padding: EdgeInsets.only(
+                            top: 47.h, right: 20.w, left: 28.w, bottom: 20.h),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -47,55 +49,62 @@ class StoryView extends StatelessWidget {
                         ),
                         child: Column(
                           children: [
-                            const SizedBox(height: 20),
-                            Row(
-                              children: [
-                                storyTag("Earthquake"),
-                                const SizedBox(width: 10),
-                                storyTag("Turkey"),
-                              ],
-                            ),
-                            const SizedBox(height: 20),
-                            Row(
-                              children: [
-                                Image.asset(ImageConstants.storyProfile),
-                                const SizedBox(width: 15),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Anna Foster",
-                                      style: TextStyle(fontSize: 18),
-                                    ),
-                                    const SizedBox(height: 2),
-                                    Text(
-                                      "The Geysers, CA",
-                                      style: TextStyle(
-                                          color: Color(0xff626060),
-                                          fontSize: 12),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 20),
                             Expanded(
                               child: SingleChildScrollView(
                                 child: Column(
                                   children: [
+                                    Row(
+                                      children: [
+                                        storyTag("Earthquake"),
+                                        SizedBox(width: 10.w),
+                                        storyTag("Turkey"),
+                                      ],
+                                    ),
+                                    SizedBox(height: 15.h),
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                            ImageConstants.storyProfile),
+                                        SizedBox(width: 10.w),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Anna Foster",
+                                              style: TextStyle(fontSize: 18.sp),
+                                            ),
+                                            const SizedBox(height: 2),
+                                            Text(
+                                              "The Geysers, CA",
+                                              style: TextStyle(
+                                                  color: Color(0xff626060),
+                                                  fontSize: 12.sp),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 15.h),
                                     ListView.builder(
                                       shrinkWrap: true,
                                       primary: false,
                                       itemCount:
                                           viewModel.storyDescription.length,
                                       itemBuilder: (context, index) {
-                                        return Text(
-                                          viewModel.storyDescription[index],
-                                          style: TextStyle(
-                                              fontSize: index == 0 ? 23 : 15,
-                                              color: index == 0
-                                                  ? Colors.black
-                                                  : Color(0xff2F2E2E)),
+                                        return Padding(
+                                          padding: EdgeInsets.only(
+                                              bottom: index == 0 ? 8.0.h : 0),
+                                          child: Text(
+                                            viewModel.storyDescription[index],
+                                            textAlign: TextAlign.justify,
+                                            style: TextStyle(
+                                                fontSize:
+                                                    index == 0 ? 23.sp : 15.sp,
+                                                color: index == 0
+                                                    ? Colors.black
+                                                    : Color(0xff2F2E2E)),
+                                          ),
                                         );
                                       },
                                     ),
@@ -104,9 +113,9 @@ class StoryView extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        const Text("Don't forget to like.",
+                                        Text("Don't forget to like.",
                                             style: TextStyle(
-                                                fontSize: 18,
+                                                fontSize: 18.sp,
                                                 fontWeight: FontWeight.bold)),
                                         Row(
                                           children: [
@@ -128,8 +137,11 @@ class StoryView extends StatelessWidget {
                                     const SizedBox(height: 15),
                                     CustomButton(
                                       title: "Share your own story",
-                                      fontSize: 19,
-                                      onPressed: () {},
+                                      fontSize: 19.sp,
+                                      onPressed: () {
+                                        locator<NavigationService>()
+                                            .navigateToPublishStoryView();
+                                      },
                                     )
                                   ],
                                 ),
@@ -171,6 +183,5 @@ class StoryView extends StatelessWidget {
         );
       },
     );
-  
   }
 }

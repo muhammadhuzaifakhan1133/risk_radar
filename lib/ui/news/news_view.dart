@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/ui/news/news_viewmodel.dart';
 import 'package:risk_radar/utils/image_constants.dart';
@@ -41,50 +42,67 @@ class NewsView extends StatelessWidget {
                       ),
                       backgroundColor: Colors.transparent,
                       elevation: 0,
-                      title: const Text(
+                      title:  Text(
                         'Google News',
-                        style: TextStyle(color: Colors.black, fontSize: 23),
+                        style: TextStyle(color: Colors.black, fontSize: 23.sp),
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    Image.asset(ImageConstants.news),
-                    const SizedBox(height: 20),
-                    const Text("Turkey hit by a 3.8 magnitude Earthquake",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 23)),
-                    const SizedBox(height: 10),
-                    Text(
-                      viewModel.newsDescription,
-                      style: const TextStyle(
-                        fontSize: 15,
-                        height: 1.5,
-                        fontWeight: FontWeight.w400,
+                    SizedBox(height: 32.h),
+                    Image.asset(
+                      ImageConstants.news,
+                      width: 346.w,
+                      height: 190.h,
+                    ),
+                    SizedBox(height: 14.h),
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 10.w, vertical: 10.h),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.4),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Column(
+                        children: [
+                           Text("Turkey hit by a 3.8 magnitude Earthquake",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 23.sp)),
+                          SizedBox(height: 10.h),
+                          Text(
+                            viewModel.newsDescription,
+                            style:  TextStyle(
+                              fontSize: 15.sp,
+                              height: 1.5,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                               Text("Don't forget to like.",
+                                  style: TextStyle(
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.bold)),
+                              Row(
+                                children: [
+                                  const Text("128 Likes"),
+                                  const SizedBox(width: 10),
+                                  IconButton(
+                                      onPressed: () {
+                                        viewModel.like();
+                                      },
+                                      icon: Icon(
+                                          viewModel.isFavorite
+                                              ? Icons.favorite
+                                              : Icons.favorite_border,
+                                          size: 30))
+                                ],
+                              )
+                            ],
+                          )
+                        ],
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text("Don't forget to like.",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold)),
-                        Row(
-                          children: [
-                            Text("128 Likes"),
-                            const SizedBox(width: 10),
-                            IconButton(
-                                onPressed: () {
-                                  viewModel.like();
-                                },
-                                icon: Icon(
-                                    viewModel.isFavorite
-                                        ? Icons.favorite
-                                        : Icons.favorite_border,
-                                    size: 30))
-                          ],
-                        )
-                      ],
-                    )
                   ],
                 ),
               ),

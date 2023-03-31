@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/app/app.router.dart';
 import 'package:risk_radar/utils/image_constants.dart';
@@ -28,7 +29,7 @@ class TheirStories extends StatelessWidget {
               locator<NavigationService>().navigateToStoryView();
             },
             child: Container(
-              width: context.width * 0.4,
+              width: 162.w,
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -37,11 +38,11 @@ class TheirStories extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children:  [
                   Text(
                     "Enter your text here",
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 25.sp,
                       color: Colors.white,
                     ),
                   )
@@ -51,7 +52,7 @@ class TheirStories extends StatelessWidget {
           );
         },
         separatorBuilder: (context, index) {
-          return const SizedBox(width: 10);
+          return SizedBox(width: 15.w);
         });
   }
 }

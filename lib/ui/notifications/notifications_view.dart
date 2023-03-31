@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/ui/notifications/notifications_viewmodel.dart';
 import 'package:risk_radar/utils/image_constants.dart';
 import 'package:risk_radar/utils/size_extension.dart';
@@ -29,16 +30,15 @@ class NotificationsView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 20),
                     Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
+                      padding: EdgeInsets.only(left: 37.w),
                       child: Text(
                         "Notifications",
                         style: TextStyle(
-                            fontWeight: FontWeight.w400, fontSize: 23),
+                            fontWeight: FontWeight.w400, fontSize: 23.sp),
                       ),
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: 12.h),
                     Expanded(
                       child: ListView.separated(
                         itemCount: viewModel.notifications.length,
@@ -52,7 +52,7 @@ class NotificationsView extends StatelessWidget {
                                 Image.asset(ImageConstants.notificationLeading),
                             title: Text(
                               viewModel.notifications[index],
-                              style: TextStyle(fontSize: 16),
+                              style: TextStyle(fontSize: 16.sp),
                             ),
                           );
                         },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/ui/disasters/disaster_enum.dart';
 import 'package:risk_radar/ui/disasters/disasters_viewmodel.dart';
@@ -44,8 +45,7 @@ class DisastersView extends StatelessWidget {
                           const Icon(Icons.arrow_back_ios, color: Colors.black),
                     ),
                     title: Text("Recent ${getDisasterName(type)}s",
-                        style:
-                            const TextStyle(color: Colors.black, fontSize: 19)),
+                        style: TextStyle(color: Colors.black, fontSize: 19.sp)),
                     actions: [
                       InkWell(
                           onTap: () {
@@ -54,9 +54,13 @@ class DisastersView extends StatelessWidget {
                           child: Image.asset(ImageConstants.precautionIcon))
                     ],
                   ),
-                  const SizedBox(height: 20),
-                  Image.asset(getDisasterMap(type)),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 30.h),
+                  Image.asset(
+                    getDisasterMap(type),
+                    height: 272.h,
+                    width: 371.w,
+                  ),
+                  SizedBox(height: 10.h),
                   Expanded(
                     child: ListView.separated(
                       itemCount: viewModel.disasters.length,

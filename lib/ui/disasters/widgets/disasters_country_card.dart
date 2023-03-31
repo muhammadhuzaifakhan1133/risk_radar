@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/app/app.router.dart';
 import 'package:risk_radar/model/disaster_model.dart';
@@ -30,19 +31,19 @@ class DisasterCountryCard extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(disaster.countryImage),
-            const SizedBox(width: 10),
+            SizedBox(width: 15.w),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   disaster.location,
                   style:
-                      const TextStyle(fontSize: 15, color: Color(0xff090808)),
+                       TextStyle(fontSize: 15.sp, color: Color(0xff090808)),
                 ),
                 Text(
                   disaster.locationDetail,
                   style:
-                      const TextStyle(fontSize: 12, color: Color(0xff626060)),
+                       TextStyle(fontSize: 12.sp, color: Color(0xff626060)),
                 ),
               ],
             ),
@@ -58,14 +59,14 @@ class DisasterCountryCard extends StatelessWidget {
                   child: Center(
                     child: Text(
                       "${disaster.magnitude}",
-                      style: const TextStyle(color: Colors.white, fontSize: 12),
+                      style:  TextStyle(color: Colors.white, fontSize: 12.sp),
                     ),
                   ),
                 ),
                 Text(
                   "${disaster.agotime} ago",
                   style:
-                      const TextStyle(color: Color(0xff626060), fontSize: 12),
+                       TextStyle(color: Color(0xff626060), fontSize: 12.sp),
                 )
               ],
             )

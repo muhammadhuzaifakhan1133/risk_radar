@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/app/app.router.dart';
 import 'package:risk_radar/ui/forget_password/forget_password_viewmodel.dart';
@@ -47,49 +48,69 @@ class ForgetPasswordView extends StatelessWidget {
                             },
                             icon: const Icon(Icons.arrow_back_ios)),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("Forget Password",
+                      SizedBox(
+                        width: context.width,
+                        height: context.height,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: 180.h),
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text("Forget Password",
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 30.sp,
+                                        fontWeight: FontWeight.bold)),
+                              ),
+                              SizedBox(height: 19.h),
+                              Text(
+                                  "Enter your email address to get the recovery code to get back into your account. ",
+                                  style: TextStyle(
+                                      color: const Color(0xff454242),
+                                      fontSize: 20.sp)),
+                              SizedBox(height: 16.h),
+                              CustomTextField(
+                                controller: viewModel.emailController,
+                                hintText: "Enter Email Address",
+                              ),
+                              SizedBox(height: 12.h),
+                              Text(
+                                "Or",
                                 style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold)),
+                                    color: const Color(0xff111946),
+                                    fontSize: 17.sp),
+                              ),
+                              SizedBox(height: 12.h),
+                              CustomTextField(
+                                controller: viewModel.emailController,
+                                hintText: "Enter Phone Number",
+                              ),
+                              SizedBox(height: 25.h),
+                              CustomButton(
+                                  title: "Get Code",
+                                  onPressed: () {
+                                    viewModel.navigateToVerifyUserView();
+                                  }),
+                              SizedBox(height: 25.h),
+                              Row(children: [
+                                const Expanded(child: Divider(thickness: 2)),
+                                Text(" OR ", style: TextStyle(fontSize: 17.sp)),
+                                const Expanded(child: Divider(thickness: 2)),
+                              ]),
+                              SizedBox(height: 18.h),
+                              GestureDetector(
+                                onTap: () {
+                                  locator<NavigationService>()
+                                      .navigateToSignUpView();
+                                },
+                                child: Text("Create New Account",
+                                    style: TextStyle(fontSize: 25.sp)),
+                              )
+                            ],
                           ),
-                          const SizedBox(height: 15),
-                          const Text(
-                              "Enter your email address to get the recovery code to get back into your account. ",
-                              style: TextStyle(
-                                  color: Color(0xff454242), fontSize: 20)),
-                          const SizedBox(height: 15),
-                          CustomTextField(
-                            controller: viewModel.emailController,
-                            hintText: "Enter Email Address",
-                          ),
-                          const SizedBox(height: 20),
-                          CustomButton(
-                              title: "Get Code",
-                              onPressed: () {
-                                viewModel.navigateToVerifyUserView();
-                              }),
-                          const SizedBox(height: 27),
-                          Row(children: const [
-                            Expanded(child: Divider(thickness: 2)),
-                            Text(" OR ", style: TextStyle(fontSize: 17)),
-                            Expanded(child: Divider(thickness: 2)),
-                          ]),
-                          const SizedBox(height: 27),
-                          GestureDetector(
-                            onTap: () {
-                              locator<NavigationService>()
-                                  .navigateToSignUpView();
-                            },
-                            child: const Text("Create New Account",
-                                style: TextStyle(fontSize: 25)),
-                          )
-                        ],
+                        ),
                       )
                     ],
                   ),

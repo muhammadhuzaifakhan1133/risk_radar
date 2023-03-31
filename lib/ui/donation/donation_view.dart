@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/app/app.router.dart';
 import 'package:risk_radar/ui/donation/donation_viewmodel.dart';
@@ -26,7 +27,7 @@ class DonationView extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 alignment: Alignment.topCenter,
-                scale: 0.95,
+                fit: BoxFit.fitWidth,
                 image: AssetImage(ImageConstants.storyImage),
               ),
             ),
@@ -38,8 +39,8 @@ class DonationView extends StatelessWidget {
                     child: Container(
                         width: context.width,
                         height: context.height * 0.6,
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                        padding: EdgeInsets.only(
+                            top: 47.h, right: 20.w, left: 28.w, bottom: 20.h),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
@@ -48,139 +49,157 @@ class DonationView extends StatelessWidget {
                         ),
                         child: Column(
                           children: [
-                            const SizedBox(height: 20),
-                            Row(
-                              children: [
-                                storyTag("Earthquake"),
-                                const SizedBox(width: 10),
-                                storyTag("Turkey"),
-                              ],
-                            ),
-                            const SizedBox(height: 20),
-                            Text(
-                              "Help the people in Turkey recover from earthquakes",
-                              style: TextStyle(fontSize: 23),
-                            ),
-                            const SizedBox(height: 10),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: const [
-                                    Text.rich(TextSpan(
-                                        text: "Organized by ",
-                                        style: TextStyle(fontSize: 15),
-                                        children: [
-                                          TextSpan(
-                                              text: "Eye on Turkey",
-                                              style: TextStyle(
-                                                  color: Color(0xff8C3283),
-                                                  fontSize: 15))
-                                        ])),
-                                    SizedBox(width: 5),
-                                    Icon(Icons.check_circle,
-                                        color: Color(0xff8C3283))
-                                  ],
-                                ),
-                                const Text(
-                                  "50 days left",
-                                  style: TextStyle(
-                                      color: Color(0xff7D777D), fontSize: 15),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 10),
-                            LinearProgressIndicator(
-                              value: 0.5,
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                  Color(0xff8C3283)),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Raised amount",
-                                  style: TextStyle(
-                                      color: Color(0xff958B8C), fontSize: 15),
-                                ),
-                                Text(
-                                  "Target",
-                                  style: TextStyle(
-                                      color: Color(0xff958B8C), fontSize: 15),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text.rich(TextSpan(
-                                    text: "\$500.25 ",
-                                    style: TextStyle(fontSize: 15),
-                                    children: [
-                                      TextSpan(
-                                        text: "(50)",
-                                        style: TextStyle(
-                                            color: Color(0xff958B8C),
-                                            fontSize: 15),
-                                      )
-                                    ])),
-                                Text(
-                                  "\$1000",
-                                  style: TextStyle(fontSize: 15),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 20),
                             Expanded(
                               child: SingleChildScrollView(
                                 child: Column(
                                   children: [
+                                    Row(
+                                      children: [
+                                        storyTag("Earthquake"),
+                                        SizedBox(width: 10.w),
+                                        storyTag("Turkey"),
+                                      ],
+                                    ),
+                                    SizedBox(height: 15.h),
+                                    Text(
+                                      "Help the people in Turkey recover from earthquakes",
+                                      style: TextStyle(fontSize: 23.sp),
+                                    ),
+                                    SizedBox(height: 8.h),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text.rich(TextSpan(
+                                                text: "Organized by ",
+                                                style:
+                                                    TextStyle(fontSize: 15.sp),
+                                                children: [
+                                                  TextSpan(
+                                                      text: "Eye on Turkey",
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xff8C3283),
+                                                          fontSize: 15.sp))
+                                                ])),
+                                            SizedBox(width: 5),
+                                            Icon(Icons.check_circle,
+                                                color: Color(0xff8C3283))
+                                          ],
+                                        ),
+                                        Text(
+                                          "50 days left",
+                                          style: TextStyle(
+                                              color: Color(0xff7D777D),
+                                              fontSize: 15.sp),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 10.h),
+                                    LinearProgressIndicator(
+                                      value: 0.5,
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                          Color(0xff8C3283)),
+                                    ),
+                                    SizedBox(height: 10.h),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          "Raised amount",
+                                          style: TextStyle(
+                                              color: Color(0xff958B8C),
+                                              fontSize: 15.sp),
+                                        ),
+                                        Text(
+                                          "Target",
+                                          style: TextStyle(
+                                              color: Color(0xff958B8C),
+                                              fontSize: 15.sp),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 10.h),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text.rich(TextSpan(
+                                            text: "\$500.25 ",
+                                            style: TextStyle(fontSize: 15),
+                                            children: [
+                                              TextSpan(
+                                                text: "(50)",
+                                                style: TextStyle(
+                                                    color: Color(0xff958B8C),
+                                                    fontSize: 15.sp),
+                                              )
+                                            ])),
+                                        Text(
+                                          "\$1000",
+                                          style: TextStyle(fontSize: 15.sp),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 10.h),
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
                                         "Recent Donors",
                                         style: TextStyle(
                                             color: Color(0xff958B8C),
-                                            fontSize: 15),
+                                            fontSize: 15.sp),
                                       ),
                                     ),
-                                    const SizedBox(height: 10),
+                                    SizedBox(height: 10.h),
                                     Row(
                                       children: [
                                         for (String donor in viewModel.donors)
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 15.0),
-                                            child: CircleAvatar(
-                                              radius: 25,
-                                              backgroundImage:
-                                                  AssetImage(donor),
+                                          Container(
+                                            width: 40.w,
+                                            height: 40.h,
+                                            margin:
+                                                EdgeInsets.only(right: 19.w),
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              image: DecorationImage(
+                                                image: AssetImage(donor),
+                                              ),
                                             ),
                                           ),
-                                        CircleAvatar(
-                                          backgroundColor: Color(0xff97488F),
-                                          radius: 25,
-                                          child: Center(
+                                        Container(
+                                            width: 40.w,
+                                            height: 40.h,
+                                            margin:
+                                                EdgeInsets.only(right: 19.w),
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: Color(0xff8C3283),
+                                            ),
+                                            child: Center(
                                               child: Text(
-                                            "10+",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 12),
-                                          )),
-                                        )
+                                                "10+",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 12.sp),
+                                              ),
+                                            )),
                                       ],
                                     ),
-                                    const SizedBox(height: 10),
+                                    SizedBox(height: 15.h),
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
                                         "More about us:",
                                         style: TextStyle(
-                                            fontSize: 18,
+                                            fontSize: 18.sp,
                                             fontWeight: FontWeight.w400),
                                       ),
                                     ),
-                                    const SizedBox(height: 10),
+                                    SizedBox(height: 10.h),
                                     ListView.builder(
                                       itemCount: viewModel.description.length,
                                       shrinkWrap: true,
@@ -188,7 +207,8 @@ class DonationView extends StatelessWidget {
                                       itemBuilder: (context, index) {
                                         return Text(
                                             viewModel.description[index],
-                                            style: TextStyle(fontSize: 15));
+                                            textAlign: TextAlign.justify,
+                                            style: TextStyle(fontSize: 15.sp));
                                       },
                                     )
                                   ],
@@ -202,10 +222,10 @@ class DonationView extends StatelessWidget {
                     right: 15,
                     child: CustomButton(
                       title: "Donate",
-                      width: 120,
-                      height: 40,
+                      width: 122.w,
+                      height: 35.h,
                       bgColor: Colors.black.withOpacity(0.6),
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       onPressed: () {
                         locator<NavigationService>().navigateToDonateView();
                       },

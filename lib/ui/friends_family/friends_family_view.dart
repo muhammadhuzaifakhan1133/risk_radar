@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/app/app.router.dart';
 import 'package:risk_radar/model/people_model.dart';
@@ -38,11 +39,11 @@ class FriendsFamilyView extends StatelessWidget {
                   AppBar(
                     elevation: 0,
                     backgroundColor: Colors.transparent,
-                    title: const Text(
+                    title: Text(
                       "Friends & Family",
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 19,
+                        fontSize: 19.sp,
                       ),
                     ),
                     actions: [
@@ -57,8 +58,8 @@ class FriendsFamilyView extends StatelessWidget {
                   Stack(
                     children: [
                       Container(
-                        width: context.width * 0.9,
-                        height: context.height * 0.75,
+                        width: 363.w,
+                        height: 614.h,
                         padding: const EdgeInsets.symmetric(
                             vertical: 10, horizontal: 20),
                         decoration: BoxDecoration(
@@ -70,13 +71,13 @@ class FriendsFamilyView extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Padding(
+                                Padding(
                                   padding: EdgeInsets.only(left: 5.0),
                                   child: Text(
                                     "Total Friends: 9",
                                     style: TextStyle(
                                       color: Color(0xff626060),
-                                      fontSize: 12,
+                                      fontSize: 12.sp,
                                     ),
                                   ),
                                 ),
@@ -84,20 +85,20 @@ class FriendsFamilyView extends StatelessWidget {
                                   children: [
                                     Image.asset(ImageConstants.greenCircle),
                                     const SizedBox(width: 8),
-                                    const Text(
+                                    Text(
                                       "Safe",
                                       style: TextStyle(
                                           color: Color(0xff626060),
-                                          fontSize: 12),
+                                          fontSize: 12.sp),
                                     ),
                                     const SizedBox(width: 8),
                                     Image.asset(ImageConstants.redCircle),
                                     const SizedBox(width: 8),
-                                    const Text(
+                                    Text(
                                       "Unsafe",
                                       style: TextStyle(
                                           color: Color(0xff626060),
-                                          fontSize: 12),
+                                          fontSize: 12.sp),
                                     )
                                   ],
                                 )
@@ -113,14 +114,15 @@ class FriendsFamilyView extends StatelessWidget {
                                           viewModel.peoples[index].imagePath),
                                       title: Text(
                                         viewModel.peoples[index].name,
-                                        style: const TextStyle(
-                                            color: Colors.black, fontSize: 15),
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 15.sp),
                                       ),
                                       subtitle: Text(
                                         viewModel.peoples[index].location,
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                             color: Color(0xff626060),
-                                            fontSize: 12),
+                                            fontSize: 12.sp),
                                       ),
                                       trailing: Image.asset(viewModel
                                                   .peoples[index].status ==
@@ -160,10 +162,10 @@ class FriendsFamilyView extends StatelessWidget {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-              title: const Center(
+              title: Center(
                   child: Text(
                 "Safety Measures",
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(fontSize: 24.sp),
               )),
               content: SizedBox(
                 width: context.width * 0.8,
@@ -201,7 +203,7 @@ class FriendsFamilyView extends StatelessWidget {
       child: InkWell(
         onTap: () {
           locator<NavigationService>().back();
-          precautionDialog(context, type);
+          precautionDialog(context, type, isPrecaution: false);
         },
         child: Card(
           elevation: 15,

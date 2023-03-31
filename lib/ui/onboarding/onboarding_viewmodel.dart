@@ -26,6 +26,12 @@ class OnBoardingViewModel extends BaseViewModel {
           'Whether it be a weather storm, an earthquake, a cyclone or flood. We are here for you.',
       image: 'assets/images/onboarding3.png',
     ),
+    onBoardingModel(
+      title: 'Charities and stories ',
+      description:
+          'Risk Radar provides you a voice of your own, to share your story and contributes a platform for donations.',
+      image: 'assets/images/onboarding4.png',
+    ),
   ];
 
   void navigateToSignIn() {

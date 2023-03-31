@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:risk_radar/model/onboading_model.dart';
 import 'package:risk_radar/ui/onboarding/onboarding_viewmodel.dart';
@@ -25,58 +26,55 @@ class OnBoardingView extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: context.height * 0.8,
-                    child: IntroSlider(
-                      refFuncGoToTab: (function) {
-                        viewModel.sliderRefFunction = function;
-                      },
-                      isShowNextBtn: false,
-                      isShowSkipBtn: false,
-                      isShowDoneBtn: false,
-                      isShowPrevBtn: false,
-                      onTabChangeCompleted: (index) {
-                        viewModel.currentIndex = index;
-                        viewModel.notifyListeners();
-                      },
-                      indicatorConfig: const IndicatorConfig(
-                        colorActiveIndicator: Colors.blue,
-                        colorIndicator: Colors.black,
-                        sizeIndicator: 20,
-                      ),
-                      listCustomTabs: [
-                        for (onBoardingModel screenData
-                            in viewModel.screensData)
-                          OnBoardingWidget(
-                            title: screenData.title,
-                            description: screenData.description,
-                            imagePath: screenData.image,
-                          )
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  CustomButton(
-                    title: viewModel.currentIndex !=
-                            (viewModel.screensData.length - 1)
-                        ? "Next"
-                        : "Get Started",
-                    onPressed: () {
-                      if (viewModel.currentIndex !=
-                          viewModel.screensData.length - 1) {
-                        viewModel
-                            .sliderRefFunction!(viewModel.currentIndex + 1);
-                      } else {
-                        viewModel.navigateToSignIn();
-                      }
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 175.h),
+                SizedBox(
+                  height: 580.h,
+                  child: IntroSlider(
+                    refFuncGoToTab: (function) {
+                      viewModel.sliderRefFunction = function;
                     },
-                  )
-                ],
-              ),
+                    isShowNextBtn: false,
+                    isShowSkipBtn: false,
+                    isShowDoneBtn: false,
+                    isShowPrevBtn: false,
+                    onTabChangeCompleted: (index) {
+                      viewModel.currentIndex = index;
+                      viewModel.notifyListeners();
+                    },
+                    indicatorConfig: const IndicatorConfig(
+                      colorActiveIndicator: Colors.blue,
+                      colorIndicator: Colors.black,
+                      sizeIndicator: 20,
+                    ),
+                    listCustomTabs: [
+                      for (onBoardingModel screenData in viewModel.screensData)
+                        OnBoardingWidget(
+                          title: screenData.title,
+                          description: screenData.description,
+                          imagePath: screenData.image,
+                        )
+                    ],
+                  ),
+                ),
+                SizedBox(height: 5.h),
+                CustomButton(
+                  title: viewModel.currentIndex !=
+                          (viewModel.screensData.length - 1)
+                      ? "Next"
+                      : "Get Started",
+                  onPressed: () {
+                    if (viewModel.currentIndex !=
+                        viewModel.screensData.length - 1) {
+                      viewModel.sliderRefFunction!(viewModel.currentIndex + 1);
+                    } else {
+                      viewModel.navigateToSignIn();
+                    }
+                  },
+                )
+              ],
             ),
           ),
         );

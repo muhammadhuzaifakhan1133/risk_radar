@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/app/app.router.dart';
 import 'package:risk_radar/ui/setting/setting_viewmodel.dart';
@@ -39,24 +40,24 @@ class SettingView extends StatelessWidget {
                           },
                           icon: const Icon(Icons.arrow_back_ios)),
                       const SizedBox(width: 10),
-                      const Text(
+                      Text(
                         "Setting",
-                        style: TextStyle(fontSize: 23),
+                        style: TextStyle(fontSize: 23.sp),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 29.h),
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
                           settingTile(
                             context: context,
-                            title: "Alert Screen Settings",
+                            title: "Language Setting",
                             iconPath: ImageConstants.setting1,
                             onTap: () {
                               locator<NavigationService>()
-                                  .navigateToAlertSettingView();
+                                  .navigateToLanguageSettingView();
                             },
                           ),
                           settingTile(
@@ -150,11 +151,11 @@ class SettingView extends StatelessWidget {
       required String title,
       required Function() onTap}) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10.0),
+      padding: EdgeInsets.only(bottom: 10.h),
       child: InkWell(
         onTap: onTap,
         child: Container(
-          width: context.width * 0.8,
+          width: 344.w,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.4),
@@ -168,7 +169,8 @@ class SettingView extends StatelessWidget {
               Flexible(
                 child: Text(
                   title,
-                  style: TextStyle(fontSize: 23),
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 23.sp),
                 ),
               ),
             ],

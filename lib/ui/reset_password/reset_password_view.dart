@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
+import 'package:risk_radar/app/app.router.dart';
 import 'package:risk_radar/ui/reset_password/reset_password_viewmodel.dart';
 import 'package:risk_radar/utils/image_constants.dart';
 import 'package:risk_radar/utils/size_extension.dart';
@@ -34,30 +36,32 @@ class ResetPasswordView extends StatelessWidget {
                   ),
                 ),
                 child: SafeArea(
-                    child: Center(
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        top: 0,
-                        left: 0,
-                        child: IconButton(
-                            onPressed: () {
-                              locator<NavigationService>().back();
-                            },
-                            icon: const Icon(Icons.arrow_back_ios)),
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    child: Stack(
+                  children: [
+                    Positioned(
+                      top: 0,
+                      left: 0,
+                      child: IconButton(
+                          onPressed: () {
+                            locator<NavigationService>().back();
+                          },
+                          icon: const Icon(Icons.arrow_back_ios)),
+                    ),
+                    SizedBox(
+                      width: context.width,
+                      height: context.height,
+                      child: Column(
                         children: [
-                          const Align(
+                          SizedBox(height: 225.h),
+                          Align(
                             alignment: Alignment.centerLeft,
                             child: Text("Reset Password",
                                 style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 30,
+                                    fontSize: 30.sp,
                                     fontWeight: FontWeight.bold)),
                           ),
-                          const SizedBox(height: 15),
+                          SizedBox(height: 30.h),
                           CustomTextField(
                             hintText: "New Password *",
                             controller: viewModel.newPasswordController,
@@ -71,7 +75,7 @@ class ResetPasswordView extends StatelessWidget {
                               onPressed: viewModel.toggleNewPasswordVisibility,
                             ),
                           ),
-                          const SizedBox(height: 15),
+                          SizedBox(height: 22.h),
                           CustomTextField(
                             hintText: "Confirm Password *",
                             controller: viewModel.confirmPasswordController,
@@ -86,12 +90,17 @@ class ResetPasswordView extends StatelessWidget {
                                   viewModel.toggleConfirmPasswordVisibility,
                             ),
                           ),
-                          const SizedBox(height: 15),
-                          CustomButton(title: "Reset", onPressed: () {}),
+                          SizedBox(height: 25.h),
+                          CustomButton(
+                              title: "Reset",
+                              onPressed: () {
+                                locator<NavigationService>()
+                                    .pushNamedAndRemoveUntil(Routes.signInView);
+                              }),
                         ],
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 )),
               ),
             ),

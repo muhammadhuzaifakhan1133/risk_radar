@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/ui/privacy_setting/privacy_setting_viewmodel.dart';
 import 'package:risk_radar/ui/privacy_setting/widget/privacy_setting_tile.dart';
 import 'package:risk_radar/utils/image_constants.dart';
@@ -35,9 +36,9 @@ class PrivacySettingView extends StatelessWidget {
                           },
                           icon: const Icon(Icons.arrow_back_ios)),
                       const SizedBox(width: 10),
-                      const Text(
+                       Text(
                         "Privacy",
-                        style: TextStyle(fontSize: 23),
+                        style: TextStyle(fontSize: 23.sp),
                       ),
                     ],
                   ),

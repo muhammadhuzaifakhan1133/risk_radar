@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/utils/size_extension.dart';
 
 Widget privacySettingTile(
@@ -22,7 +23,7 @@ Widget privacySettingTile(
           Flexible(
             child: Text(
               title,
-              style: const TextStyle(fontSize: 23),
+              style:  TextStyle(fontSize: 23.sp),
             ),
           ),
           Checkbox(

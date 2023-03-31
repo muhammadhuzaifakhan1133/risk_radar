@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/app/app.locator.dart';
 import 'package:risk_radar/app/app.router.dart';
 import 'package:risk_radar/utils/image_constants.dart';
@@ -19,26 +20,30 @@ class HomeSearchBar extends StatelessWidget {
         child: CustomTextField(
           hintText: "Search for blogs, charities",
           controller: searchController,
-          height: 40,
+          height: 40.h,
           borderRadius: 20,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           filledColor: const Color(0xffD9D9D9),
           hintTextColor: const Color(0xff706767),
-          hintFontSize: 15,
+          hintFontSize: 15.sp,
           suffixIcon: const Icon(Icons.search),
         ),
       ),
-      const SizedBox(width: 25),
+      SizedBox(width: 41.w),
       Stack(
         children: [
           InkWell(
             onTap: () {
               locator<NavigationService>().navigateToProfileView();
             },
-            child: CircleAvatar(
-              radius: 23,
-              backgroundImage: AssetImage(ImageConstants.profile),
+            child: Container(
+              height: 48.h,
+              width: 44.w,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage(ImageConstants.profile))),
             ),
           ),
           Positioned(

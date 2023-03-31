@@ -5,23 +5,24 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/material.dart' as _i28;
+import 'package:flutter/material.dart' as _i29;
 import 'package:flutter/material.dart';
-import 'package:risk_radar/model/disaster_model.dart' as _i30;
+import 'package:risk_radar/model/disaster_model.dart' as _i31;
 import 'package:risk_radar/ui/add_friends_family/add_friends_family_view.dart'
     as _i13;
-import 'package:risk_radar/ui/alert_setting/alert_setting_view.dart' as _i20;
 import 'package:risk_radar/ui/bookmarked_charities/bookmarked_charities_view.dart'
     as _i26;
 import 'package:risk_radar/ui/bookmarked_stories/bookmarked_stories_view.dart'
     as _i27;
 import 'package:risk_radar/ui/card_details/card_details_view.dart' as _i24;
 import 'package:risk_radar/ui/disasters/disaster_detail_view.dart' as _i11;
-import 'package:risk_radar/ui/disasters/disaster_enum.dart' as _i29;
+import 'package:risk_radar/ui/disasters/disaster_enum.dart' as _i30;
 import 'package:risk_radar/ui/disasters/disasters_view.dart' as _i10;
 import 'package:risk_radar/ui/donate/donate_view.dart' as _i14;
 import 'package:risk_radar/ui/donation/donation_view.dart' as _i17;
 import 'package:risk_radar/ui/forget_password/forget_password_view.dart' as _i7;
+import 'package:risk_radar/ui/language_setting/language_setting_view.dart'
+    as _i20;
 import 'package:risk_radar/ui/navigation_bar/navigation_bar_view.dart' as _i9;
 import 'package:risk_radar/ui/news/news_view.dart' as _i12;
 import 'package:risk_radar/ui/onboarding/onboarding_view.dart' as _i3;
@@ -29,6 +30,7 @@ import 'package:risk_radar/ui/payment/payment_view.dart' as _i15;
 import 'package:risk_radar/ui/privacy_setting/privacy_setting_view.dart'
     as _i21;
 import 'package:risk_radar/ui/profile/profile_view.dart' as _i18;
+import 'package:risk_radar/ui/publish_story/publish_story_view.dart' as _i28;
 import 'package:risk_radar/ui/push_notification/push_notification_view.dart'
     as _i25;
 import 'package:risk_radar/ui/rescue_team_numbers/rescue_team_numbers_view.dart'
@@ -43,7 +45,7 @@ import 'package:risk_radar/ui/splash/splash_view.dart' as _i2;
 import 'package:risk_radar/ui/story/story_view.dart' as _i16;
 import 'package:risk_radar/ui/verify_user/verify_user_view.dart' as _i8;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i31;
+import 'package:stacked_services/stacked_services.dart' as _i32;
 
 class Routes {
   static const splashView = '/';
@@ -82,7 +84,7 @@ class Routes {
 
   static const settingView = '/setting-view';
 
-  static const alertSettingView = '/alert-setting-view';
+  static const languageSettingView = '/language-setting-view';
 
   static const privacySettingView = '/privacy-setting-view';
 
@@ -97,6 +99,8 @@ class Routes {
   static const bookmarkedCharitiesView = '/bookmarked-charities-view';
 
   static const bookmarkedStoriesView = '/bookmarked-stories-view';
+
+  static const publishStoryView = '/publish-story-view';
 
   static const all = <String>{
     splashView,
@@ -117,7 +121,7 @@ class Routes {
     donationView,
     profileView,
     settingView,
-    alertSettingView,
+    languageSettingView,
     privacySettingView,
     rescueTeamNumbersView,
     safetyMeasuresView,
@@ -125,6 +129,7 @@ class Routes {
     pushNotificationView,
     bookmarkedCharitiesView,
     bookmarkedStoriesView,
+    publishStoryView,
   };
 }
 
@@ -203,8 +208,8 @@ class StackedRouter extends _i1.RouterBase {
       page: _i19.SettingView,
     ),
     _i1.RouteDef(
-      Routes.alertSettingView,
-      page: _i20.AlertSettingView,
+      Routes.languageSettingView,
+      page: _i20.LanguageSettingView,
     ),
     _i1.RouteDef(
       Routes.privacySettingView,
@@ -234,60 +239,64 @@ class StackedRouter extends _i1.RouterBase {
       Routes.bookmarkedStoriesView,
       page: _i27.BookmarkedStoriesView,
     ),
+    _i1.RouteDef(
+      Routes.publishStoryView,
+      page: _i28.PublishStoryView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.SplashView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.SplashView(),
         settings: data,
         maintainState: false,
       );
     },
     _i3.OnBoardingView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.OnBoardingView(),
         settings: data,
         maintainState: false,
       );
     },
     _i4.SignInView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.SignInView(),
         settings: data,
         maintainState: false,
       );
     },
     _i5.SignUpView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.SignUpView(),
         settings: data,
         maintainState: false,
       );
     },
     _i6.ResetPasswordView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.ResetPasswordView(),
         settings: data,
         maintainState: false,
       );
     },
     _i7.ForgetPasswordView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.ForgetPasswordView(),
         settings: data,
         maintainState: false,
       );
     },
     _i8.VerifyUserView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.VerifyUserView(),
         settings: data,
         maintainState: false,
       );
     },
     _i9.NavigationBarView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.NavigationBarView(),
         settings: data,
         maintainState: false,
@@ -295,7 +304,7 @@ class StackedRouter extends _i1.RouterBase {
     },
     _i10.DisastersView: (data) {
       final args = data.getArgs<DisastersViewArguments>(nullOk: false);
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) =>
             _i10.DisastersView(key: args.key, type: args.type),
         settings: data,
@@ -304,7 +313,7 @@ class StackedRouter extends _i1.RouterBase {
     },
     _i11.DisasterDetailView: (data) {
       final args = data.getArgs<DisasterDetailViewArguments>(nullOk: false);
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => _i11.DisasterDetailView(
             key: args.key, disaster: args.disaster, type: args.type),
         settings: data,
@@ -312,113 +321,120 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i12.NewsView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i12.NewsView(),
         settings: data,
         maintainState: false,
       );
     },
     _i13.AddFriendsFamilyView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i13.AddFriendsFamilyView(),
         settings: data,
         maintainState: false,
       );
     },
     _i14.DonateView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i14.DonateView(),
         settings: data,
         maintainState: false,
       );
     },
     _i15.PaymentView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i15.PaymentView(),
         settings: data,
         maintainState: false,
       );
     },
     _i16.StoryView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i16.StoryView(),
         settings: data,
         maintainState: false,
       );
     },
     _i17.DonationView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i17.DonationView(),
         settings: data,
         maintainState: false,
       );
     },
     _i18.ProfileView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i18.ProfileView(),
         settings: data,
         maintainState: false,
       );
     },
     _i19.SettingView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i19.SettingView(),
         settings: data,
         maintainState: false,
       );
     },
-    _i20.AlertSettingView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i20.AlertSettingView(),
+    _i20.LanguageSettingView: (data) {
+      return _i29.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i20.LanguageSettingView(),
         settings: data,
         maintainState: false,
       );
     },
     _i21.PrivacySettingView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i21.PrivacySettingView(),
         settings: data,
         maintainState: false,
       );
     },
     _i22.RescueTeamNumbersView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i22.RescueTeamNumbersView(),
         settings: data,
         maintainState: false,
       );
     },
     _i23.SafetyMeasuresView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i23.SafetyMeasuresView(),
         settings: data,
         maintainState: false,
       );
     },
     _i24.CardDetailsView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i24.CardDetailsView(),
         settings: data,
         maintainState: false,
       );
     },
     _i25.PushNotificationView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i25.PushNotificationView(),
         settings: data,
         maintainState: false,
       );
     },
     _i26.BookmarkedCharitiesView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i26.BookmarkedCharitiesView(),
         settings: data,
         maintainState: false,
       );
     },
     _i27.BookmarkedStoriesView: (data) {
-      return _i28.MaterialPageRoute<dynamic>(
+      return _i29.MaterialPageRoute<dynamic>(
         builder: (context) => const _i27.BookmarkedStoriesView(),
+        settings: data,
+        maintainState: false,
+      );
+    },
+    _i28.PublishStoryView: (data) {
+      return _i29.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i28.PublishStoryView(),
         settings: data,
         maintainState: false,
       );
@@ -437,9 +453,9 @@ class DisastersViewArguments {
     required this.type,
   });
 
-  final _i28.Key? key;
+  final _i29.Key? key;
 
-  final _i29.DisasterType type;
+  final _i30.DisasterType type;
 
   @override
   String toString() {
@@ -454,11 +470,11 @@ class DisasterDetailViewArguments {
     required this.type,
   });
 
-  final _i28.Key? key;
+  final _i29.Key? key;
 
-  final _i30.DisasterModel disaster;
+  final _i31.DisasterModel disaster;
 
-  final _i29.DisasterType type;
+  final _i30.DisasterType type;
 
   @override
   String toString() {
@@ -466,7 +482,7 @@ class DisasterDetailViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i31.NavigationService {
+extension NavigatorStateExtension on _i32.NavigationService {
   Future<dynamic> navigateToSplashView([
     int? routerId,
     bool preventDuplicates = true,
@@ -580,8 +596,8 @@ extension NavigatorStateExtension on _i31.NavigationService {
   }
 
   Future<dynamic> navigateToDisastersView({
-    _i28.Key? key,
-    required _i29.DisasterType type,
+    _i29.Key? key,
+    required _i30.DisasterType type,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -597,9 +613,9 @@ extension NavigatorStateExtension on _i31.NavigationService {
   }
 
   Future<dynamic> navigateToDisasterDetailView({
-    _i28.Key? key,
-    required _i30.DisasterModel disaster,
-    required _i29.DisasterType type,
+    _i29.Key? key,
+    required _i31.DisasterModel disaster,
+    required _i30.DisasterType type,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -727,14 +743,14 @@ extension NavigatorStateExtension on _i31.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToAlertSettingView([
+  Future<dynamic> navigateToLanguageSettingView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
   ]) async {
-    return navigateTo<dynamic>(Routes.alertSettingView,
+    return navigateTo<dynamic>(Routes.languageSettingView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -833,6 +849,20 @@ extension NavigatorStateExtension on _i31.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.bookmarkedStoriesView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToPublishStoryView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.publishStoryView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -952,8 +982,8 @@ extension NavigatorStateExtension on _i31.NavigationService {
   }
 
   Future<dynamic> replaceWithDisastersView({
-    _i28.Key? key,
-    required _i29.DisasterType type,
+    _i29.Key? key,
+    required _i30.DisasterType type,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -969,9 +999,9 @@ extension NavigatorStateExtension on _i31.NavigationService {
   }
 
   Future<dynamic> replaceWithDisasterDetailView({
-    _i28.Key? key,
-    required _i30.DisasterModel disaster,
-    required _i29.DisasterType type,
+    _i29.Key? key,
+    required _i31.DisasterModel disaster,
+    required _i30.DisasterType type,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -1099,14 +1129,14 @@ extension NavigatorStateExtension on _i31.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithAlertSettingView([
+  Future<dynamic> replaceWithLanguageSettingView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
   ]) async {
-    return replaceWith<dynamic>(Routes.alertSettingView,
+    return replaceWith<dynamic>(Routes.languageSettingView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -1205,6 +1235,20 @@ extension NavigatorStateExtension on _i31.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.bookmarkedStoriesView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithPublishStoryView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.publishStoryView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:risk_radar/utils/size_extension.dart';
 
 Widget paymentCard(BuildContext context,
@@ -25,7 +26,7 @@ Widget paymentCard(BuildContext context,
               const SizedBox(width: 10),
               Text(
                 cardType,
-                style: const TextStyle(fontSize: 18),
+                style:  TextStyle(fontSize: 18.sp),
               ),
             ],
           ),
